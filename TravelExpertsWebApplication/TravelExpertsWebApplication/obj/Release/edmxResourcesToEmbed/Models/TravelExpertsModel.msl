@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TravelExpertsWebAppStoreContainer" CdmEntityContainer="TravelExpertsEntities">
+    <EntitySetMapping Name="Affiliations">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Affiliation">
+        <MappingFragment StoreEntitySet="Affiliations">
+          <ScalarProperty Name="AffilitationId" ColumnName="AffilitationId" />
+          <ScalarProperty Name="AffName" ColumnName="AffName" />
+          <ScalarProperty Name="AffDesc" ColumnName="AffDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agencies">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Agency">
+        <MappingFragment StoreEntitySet="Agencies">
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+          <ScalarProperty Name="AgncyAddress" ColumnName="AgncyAddress" />
+          <ScalarProperty Name="AgncyCity" ColumnName="AgncyCity" />
+          <ScalarProperty Name="AgncyProv" ColumnName="AgncyProv" />
+          <ScalarProperty Name="AgncyPostal" ColumnName="AgncyPostal" />
+          <ScalarProperty Name="AgncyCountry" ColumnName="AgncyCountry" />
+          <ScalarProperty Name="AgncyPhone" ColumnName="AgncyPhone" />
+          <ScalarProperty Name="AgncyFax" ColumnName="AgncyFax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Agent">
+        <MappingFragment StoreEntitySet="Agents">
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="AgtFirstName" ColumnName="AgtFirstName" />
+          <ScalarProperty Name="AgtMiddleInitial" ColumnName="AgtMiddleInitial" />
+          <ScalarProperty Name="AgtLastName" ColumnName="AgtLastName" />
+          <ScalarProperty Name="AgtBusPhone" ColumnName="AgtBusPhone" />
+          <ScalarProperty Name="AgtEmail" ColumnName="AgtEmail" />
+          <ScalarProperty Name="AgtPosition" ColumnName="AgtPosition" />
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingDetails">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.BookingDetail">
+        <MappingFragment StoreEntitySet="BookingDetails">
+          <ScalarProperty Name="BookingDetailId" ColumnName="BookingDetailId" />
+          <ScalarProperty Name="ItineraryNo" ColumnName="ItineraryNo" />
+          <ScalarProperty Name="TripStart" ColumnName="TripStart" />
+          <ScalarProperty Name="TripEnd" ColumnName="TripEnd" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="BasePrice" ColumnName="BasePrice" />
+          <ScalarProperty Name="AgencyCommission" ColumnName="AgencyCommission" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+          <ScalarProperty Name="ProductSupplierId" ColumnName="ProductSupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="BookingNo" ColumnName="BookingNo" />
+          <ScalarProperty Name="TravelerCount" ColumnName="TravelerCount" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="TripTypeId" ColumnName="TripTypeId" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="BasePrice" ColumnName="BasePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Class">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ClassDesc" ColumnName="ClassDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCards">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.CreditCard">
+        <MappingFragment StoreEntitySet="CreditCards">
+          <ScalarProperty Name="CreditCardId" ColumnName="CreditCardId" />
+          <ScalarProperty Name="CCName" ColumnName="CCName" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="CCExpiry" ColumnName="CCExpiry" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerRegistrationDatas">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.CustomerRegistrationData">
+        <MappingFragment StoreEntitySet="CustomerRegistrationData">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+          <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+          <ScalarProperty Name="CustAddress" ColumnName="CustAddress" />
+          <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+          <ScalarProperty Name="CustProv" ColumnName="CustProv" />
+          <ScalarProperty Name="CustPostal" ColumnName="CustPostal" />
+          <ScalarProperty Name="CustCountry" ColumnName="CustCountry" />
+          <ScalarProperty Name="CustHomePhone" ColumnName="CustHomePhone" />
+          <ScalarProperty Name="CustBusPhone" ColumnName="CustBusPhone" />
+          <ScalarProperty Name="CustEmail" ColumnName="CustEmail" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+          <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+          <ScalarProperty Name="CustAddress" ColumnName="CustAddress" />
+          <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+          <ScalarProperty Name="CustProv" ColumnName="CustProv" />
+          <ScalarProperty Name="CustPostal" ColumnName="CustPostal" />
+          <ScalarProperty Name="CustCountry" ColumnName="CustCountry" />
+          <ScalarProperty Name="CustHomePhone" ColumnName="CustHomePhone" />
+          <ScalarProperty Name="CustBusPhone" ColumnName="CustBusPhone" />
+          <ScalarProperty Name="CustEmail" ColumnName="CustEmail" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers_Rewards">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Customers_Rewards">
+        <MappingFragment StoreEntitySet="Customers_Rewards">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="RewardId" ColumnName="RewardId" />
+          <ScalarProperty Name="RwdNumber" ColumnName="RwdNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fees">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Fee">
+        <MappingFragment StoreEntitySet="Fees">
+          <ScalarProperty Name="FeeId" ColumnName="FeeId" />
+          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+          <ScalarProperty Name="FeeAmt" ColumnName="FeeAmt" />
+          <ScalarProperty Name="FeeDesc" ColumnName="FeeDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Package">
+        <MappingFragment StoreEntitySet="Packages">
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="PkgName" ColumnName="PkgName" />
+          <ScalarProperty Name="PkgStartDate" ColumnName="PkgStartDate" />
+          <ScalarProperty Name="PkgEndDate" ColumnName="PkgEndDate" />
+          <ScalarProperty Name="PkgDesc" ColumnName="PkgDesc" />
+          <ScalarProperty Name="PkgBasePrice" ColumnName="PkgBasePrice" />
+          <ScalarProperty Name="PkgAgencyCommission" ColumnName="PkgAgencyCommission" />
+          <ScalarProperty Name="PkgImage" ColumnName="PkgImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products_Suppliers">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Products_Suppliers">
+        <MappingFragment StoreEntitySet="Products_Suppliers">
+          <ScalarProperty Name="ProductSupplierId" ColumnName="ProductSupplierId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Region">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegisteredUsers">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.RegisteredUser">
+        <MappingFragment StoreEntitySet="RegisteredUsers">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rewards">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Reward">
+        <MappingFragment StoreEntitySet="Rewards">
+          <ScalarProperty Name="RewardId" ColumnName="RewardId" />
+          <ScalarProperty Name="RwdName" ColumnName="RwdName" />
+          <ScalarProperty Name="RwdDesc" ColumnName="RwdDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierContacts">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.SupplierContact">
+        <MappingFragment StoreEntitySet="SupplierContacts">
+          <ScalarProperty Name="SupplierContactId" ColumnName="SupplierContactId" />
+          <ScalarProperty Name="SupConFirstName" ColumnName="SupConFirstName" />
+          <ScalarProperty Name="SupConLastName" ColumnName="SupConLastName" />
+          <ScalarProperty Name="SupConCompany" ColumnName="SupConCompany" />
+          <ScalarProperty Name="SupConAddress" ColumnName="SupConAddress" />
+          <ScalarProperty Name="SupConCity" ColumnName="SupConCity" />
+          <ScalarProperty Name="SupConProv" ColumnName="SupConProv" />
+          <ScalarProperty Name="SupConPostal" ColumnName="SupConPostal" />
+          <ScalarProperty Name="SupConCountry" ColumnName="SupConCountry" />
+          <ScalarProperty Name="SupConBusPhone" ColumnName="SupConBusPhone" />
+          <ScalarProperty Name="SupConFax" ColumnName="SupConFax" />
+          <ScalarProperty Name="SupConEmail" ColumnName="SupConEmail" />
+          <ScalarProperty Name="SupConURL" ColumnName="SupConURL" />
+          <ScalarProperty Name="AffiliationId" ColumnName="AffiliationId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Supplier">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="SupName" ColumnName="SupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TripTypes">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.TripType">
+        <MappingFragment StoreEntitySet="TripTypes">
+          <ScalarProperty Name="TripTypeId" ColumnName="TripTypeId" />
+          <ScalarProperty Name="TTName" ColumnName="TTName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmpFirstName" ColumnName="EmpFirstName" />
+          <ScalarProperty Name="EmpMiddleInitial" ColumnName="EmpMiddleInitial" />
+          <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+          <ScalarProperty Name="EmpBusPhone" ColumnName="EmpBusPhone" />
+          <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+          <ScalarProperty Name="EmpPosition" ColumnName="EmpPosition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_Products">
+      <EntityTypeMapping TypeName="TravelExpertsWebApp.Package_Products">
+        <MappingFragment StoreEntitySet="Package_Products">
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="Prod1" ColumnName="Prod1" />
+          <ScalarProperty Name="Prod2" ColumnName="Prod2" />
+          <ScalarProperty Name="Prod3" ColumnName="Prod3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Packages_Products_Suppliers" TypeName="TravelExpertsWebApp.Packages_Products_Suppliers" StoreEntitySet="Packages_Products_Suppliers">
+      <EndProperty Name="Packages">
+        <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+      </EndProperty>
+      <EndProperty Name="Products_Suppliers">
+        <ScalarProperty Name="ProductSupplierId" ColumnName="ProductSupplierId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

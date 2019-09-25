@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ee58d38c7de47f98274825974be6eb9" Name="Diagram1">
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Affiliation" Width="1.5" PointX="6.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Agency" Width="1.5" PointX="1.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Agent" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.BookingDetail" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Booking" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Class" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.CreditCard" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.CustomerRegistrationData" Width="1.5" PointX="10.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Customer" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Customers_Rewards" Width="1.5" PointX="9" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Fee" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Package" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Product" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Products_Suppliers" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Region" Width="1.5" PointX="6" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.RegisteredUser" Width="1.5" PointX="11.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Reward" Width="1.5" PointX="6.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.SupplierContact" Width="1.5" PointX="9" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Supplier" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.TripType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Employee" Width="1.5" PointX="11.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelExpertsWebApp.Package_Products" Width="1.5" PointX="11.75" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="TravelExpertsWebApp.SupplierContacts_FK00" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_Agents_Agencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_Customers_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_BookingDetails_Bookings" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_BookingDetails_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_BookingDetails_Fees" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_BookingDetails_Products_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.FK_BookingDetails_Regions" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Bookings_FK00" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Bookings_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Bookings_FK02" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.CreditCards_FK00" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Customers_Rewards_FK00" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Customers_Rewards_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Products_Suppliers_FK00" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Products_Suppliers_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.SupplierContacts_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelExpertsWebApp.Packages_Products_Suppliers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

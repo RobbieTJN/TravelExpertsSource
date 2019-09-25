@@ -1,0 +1,280 @@
+﻿@model IEnumerable<TravelExpertsWebApplication.Models.Agent>
+
+@using TravelExpertsWebApplication.Models;
+@{
+    /* Author: Ryan Bonnell, Robbie Nielsen */
+    ViewBag.Title = "Contact Us";
+}
+<!-- Row 1 - Page Header -->
+<div class="row">
+    <div class="col">
+        <h2 class="text-dark">@ViewBag.Title</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <!-- Start of Accordion -->
+        <!-- Accordion structure by Robbie, content grabbed from DB by Ryan -->
+        <div id="accordion">
+            <!-- Accordion Item 1 - Calgary Branch -->
+            <div class="card">
+                <!-- Header of Accordion Item 1 -->
+                <div class="card-header bg-accordion">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
+                        <button type="button" class="btn btn-outline-light">Calgary Branch</button>
+                    </a>
+                </div>
+                <!-- Content of Accordion Item 1 -->
+                <div id="collapseOne" class="collapse show">
+                    <div class="card-body bg-light">
+                        <!-- Content of Accordion Item 1 - Row 1 -->
+                        <div class="row">
+                            <!-- Embedded Map - Calgary -->
+                            <div class="col-xs-12 col-lg-4">
+                                <iframe class="img-fluid"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.3847274439927!2d-114.09056018424701!3d51.045983579562105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716fe76e972489%3A0x149461cedf5b7c5b!2s1155+8+Ave+SW%2C+Calgary%2C+AB!5e0!3m2!1sen!2sca!4v1559501106434!5m2!1sen!2sca"
+                                        width="350" height="350" frameborder="0"></iframe>
+                            </div>
+                            <!-- Accordion Item 1 - Row 1 - Tables -->
+                            <div class="col-xs-12 col-lg-6">
+                                <!-- Accordion Item 1 Table Row -->
+                                <div class="row">
+                                    <!-- Column 1 - Agency Contact Info Tables -->
+                                    <div class="col">
+                                        <!-- Calgary Agency Table -->
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p class="font-weight-bold">
+                                                            Agency&nbsp;Address:
+                                                        </p>
+                                                        <!-- Must use foreach, as ViewBag.Agencies is a list -->
+                                                        @foreach (Agency agency in ViewBag.Agencies)
+                                                        {
+                                                            if (agency.AgencyId == 1)
+                                                            {
+                                                                <p>@agency.AgncyAddress @agency.AgncyPostal.Insert(3, " ")</p>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="font-weight-bold">
+                                                            Agency&nbsp;Phone&nbsp;Number:
+                                                        </p>
+                                                        @foreach (Agency agency in ViewBag.Agencies)
+                                                        {
+                                                            double phone = Double.Parse(agency.AgncyPhone);
+                                                            if (agency.AgencyId == 1)
+                                                            {
+                                                                <p>
+                                                                    @string.Format("{0:(###) ###-####}", phone)
+                                                                </p>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- End Column 1 - Agency Contact Info Tables -->
+                                    <!-- Column 2 - Senior Agent Table -->
+                                    <div class="col">
+                                        <!-- Calgary Agency Senior Agent Contact Info Table -->
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <!-- Calgary branch has 2 senior agents -->
+                                                        <p class="font-weight-bold">
+                                                            Senior&nbsp;Agents
+                                                        </p>
+                                                        @foreach (Agent agent in Model)
+                                                        {
+                                                            string nameString;
+                                                            // Check for middle initial, to remove extra space if it is null
+                                                            if (agent.AgtMiddleInitial != null)
+                                                            {
+                                                                nameString = agent.AgtFirstName + " " + agent.AgtMiddleInitial + " " + agent.AgtLastName;
+                                                            }
+                                                            else
+                                                            {
+                                                                nameString = agent.AgtFirstName + " " + agent.AgtLastName;
+                                                            }
+                                                            if (agent.AgencyId == 1 && agent.AgtPosition == "Senior Agent")
+                                                            {
+
+                                                                <p>
+                                                                    @nameString
+                                                                </p>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- End Column 2 - Senior Agent Table -->
+                                </div><!-- End Accordion Item 1 Table Row -->
+                            </div>
+                        </div><!-- End Content of Accordion Item 1 - Row 1 -->
+                        <!-- Collapse button for Accordion Item 1 Row 2 -->
+                        <a href="#calAgents" class="btn btn-outline-secondary btn-sm" data-toggle="collapse">View Agents</a>
+                        <!-- Content of Accordion Item 1 - row 2 -->
+                        <div id="calAgents" class="row collapse">
+                            <table class="table-striped" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <th>Agent Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Position</th>
+                                </tr>
+                                @foreach (Agent agent in Model)
+                                {
+                                    if (agent.AgencyId == 1 && agent.AgtPosition != "Senior Agent")
+                                    {
+                                        <tr>
+                                            <td>@agent.AgtFirstName @agent.AgtMiddleInitial @agent.AgtLastName</td>
+                                            <td>@agent.AgtBusPhone</td>
+                                            <td>@agent.AgtEmail</td>
+                                            <td>@agent.AgtPosition</td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div><!-- End Content of Accordion Item 1 - row 2 -->
+                    </div><!-- End of Accordion Item 1 card-body div -->
+                </div><!-- End of Accordion Item 1 Content -->
+            </div><!-- End of Accordion Item 1 - Calgary Branch -->
+            <!-- Accordion Item 2 - Okotoks Branch -->
+            <div class="card">
+                <!-- Header of Accordion Item 2 -->
+                <div class="card-header bg-accordion">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                        <button type="button" class="btn btn-outline-light">Okotoks Branch</button>
+                    </a>
+                </div>
+                <!-- Content of Accordion Item 2 -->
+                <div id="collapseTwo" class="collapse">
+                    <div class="card-body bg-light">
+                        <!-- Content of Accordion Item 2 - Row 1 -->
+                        <div class="row">
+                            <!-- Embedded Map - Okotoks -->
+                            <div class="col-xs-12 col-lg-4">
+                                <iframe class="img-fluid"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.73653691242!2d-113.98168086222208!3d50.727375854361185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xda90d09e3a1b893e!2sOkotoks+Professional+Building!5e0!3m2!1sen!2sca!4v1559502590843!5m2!1sen!2sca"
+                                        width="350" height="350" frameborder="0"></iframe>
+                            </div>
+                            <!-- Accordion Item 2 - Row 1 - Tables -->
+                            <div class="col-xs-12 col-lg-6">
+                                <!-- Accordion Item 2 Table Row -->
+                                <div class="row">
+                                    <!-- Column 1 - Agency Contact Info Tables -->
+                                    <div class="col">
+                                        <!-- Okotoks Agency Table -->
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p class="font-weight-bold">
+                                                            Agency&nbsp;Address:
+                                                        </p>
+                                                        @foreach (Agency agency in ViewBag.Agencies)
+                                                        {
+                                                            if (agency.AgencyId == 2)
+                                                            {
+                                                                <p>@agency.AgncyAddress @agency.AgncyPostal.Insert(3, " ")</p>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="font-weight-bold">
+                                                            Agency&nbsp;Phone&nbsp;Number:
+                                                        </p>
+                                                        @foreach (Agency agency in ViewBag.Agencies)
+                                                        {
+                                                            double phone = Double.Parse(agency.AgncyPhone);
+                                                            if (agency.AgencyId == 2)
+                                                            {
+                                                                <p>
+                                                                    @string.Format("{0:(###) ###-####}", phone)
+                                                                </p>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- End Column 1 - Agency Contact Info Tables -->
+                                    <!-- Column 2 - Senior Agent Table -->
+                                    <div class="col">
+                                        <!-- Okotoks Agency Senior Agent Contact Info Table -->
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p class="font-weight-bold">
+                                                            Senior&nbsp;Agent
+                                                        </p>
+                                                        @foreach (Agent agent in Model)
+                                                        {
+                                                            string nameString;
+                                                            // Check for middle initial, to remove extra space if it is null
+                                                            if (agent.AgtMiddleInitial != null)
+                                                            {
+                                                                nameString = agent.AgtFirstName + " " + agent.AgtMiddleInitial + " " + agent.AgtLastName;
+                                                            }
+                                                            else
+                                                            {
+                                                                nameString = agent.AgtFirstName + " " + agent.AgtLastName;
+                                                            }
+                                                            if (agent.AgencyId == 2 && agent.AgtPosition == "Senior Agent")
+                                                            {
+                                                                <p>
+                                                                    @nameString
+                                                                </p>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- End Column 2 - Senior Agent Table -->
+                                </div><!-- End Accordion Item 2 Table Row -->
+                            </div>
+                        </div><!-- End Content of Accordion Item 2 - Row 1 -->
+                        <!-- Collapse button for Accordion Item 2 Row 2 -->
+                        <a href="#okAgents" class="btn btn-outline-secondary btn-sm" data-toggle="collapse">View Agents</a>
+                        <!-- Content of Accordion Item 2 - row 2 -->
+                        <div id="okAgents" class="row collapse">
+                            <table class="table-striped" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <th>Agent Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Position</th>
+
+                                </tr>
+                                @foreach (Agent agent in Model)
+                                {
+                                    if (agent.AgencyId == 2 && agent.AgtPosition != "Senior Agent")
+                                    {
+                                        <tr>
+                                            <td>@agent.AgtFirstName @agent.AgtMiddleInitial @agent.AgtLastName</td>
+                                            <td>@agent.AgtBusPhone</td>
+                                            <td>@agent.AgtEmail</td>
+                                            <td>@agent.AgtPosition</td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div><!-- End Content of Accordion Item 2 - row 2 -->
+                    </div><!-- End of Accordion Item 2 card-body div -->
+                </div><!-- End of Accordion Item 2 Content -->
+            </div><!-- End of Accordion Item 2 - Okotoks Branch -->
+        </div><!-- ###### End of Accordion ###### -->
+    </div><!-- End row 3 column div -->
+</div>

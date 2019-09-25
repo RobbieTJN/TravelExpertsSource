@@ -1,0 +1,44 @@
+﻿@model TravelExpertsWebApplication.Models.CreditCard
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "Verify credit card information";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CCName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCExpiry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCExpiry)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <!-- new { id = Model.CreditCardId } - routValue to get CreditCardId -->
+    @Html.ActionLink("Proceed with Purchase", "Confirm", "Dashboard") |
+    @Html.ActionLink("Back to Home Page", "Index", "Home") |
+    @Html.ActionLink("Back to Dashboard", "Index", "Dashboard")
+</p>

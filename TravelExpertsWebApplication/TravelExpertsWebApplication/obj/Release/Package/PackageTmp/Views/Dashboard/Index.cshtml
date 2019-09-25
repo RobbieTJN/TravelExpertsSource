@@ -1,0 +1,50 @@
+﻿@model TravelExpertsWebApp.Models.Customer
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "Customer Dashboard";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["PkgMessage"] != null)
+{
+    <div class="alert alert-success">
+        Package successfully booked!
+    </div>
+    <!-- Success fireworks! -->
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+    </div>
+}
+
+@if (Session["Username"] != null)
+{
+    <h3>Welcome @Session["Username"].ToString()!</h3>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <button class="btn btn-sm btn-primary" data-toggle="collapse" data-target="#custInfo">
+                Personal Information
+            </button>
+            <div id="custInfo" class="collapse">
+                @Model.CustFirstName&nbsp;@Model.CustLastName<br />
+                @Model.CustAddress<br />
+                @Model.CustCity @Model.CustProv @Model.CustPostal<br />
+                @Model.CustCountry<br />
+                Home Phone Number:<br />
+                @Model.CustHomePhone<br />
+                Business Phone Number:<br />
+                @Model.CustBusPhone<br />
+                Email:<br />
+                @Model.CustEmail
+                <br /><br />
+                @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId })
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            @Html.ActionLink("View Purchased Packages", "ViewPackages", new { id = Model.CustomerId })
+        </div>
+    </div>
+}

@@ -1,0 +1,61 @@
+﻿@model TravelExpertsWebApplication.Models.Package
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "Purchase Confirmation";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Please verify that the following information is correct:</p>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgBasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgBasePrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Confirm Purchase", "ConfirmPurchase", "Dashboard", new { id = Model.PackageId }, null) |
+    @Html.ActionLink("Back to Home Page", "Index", "Home") |
+    @Html.ActionLink("Back to Dashboard", "Index", "Dashboard")
+</p>

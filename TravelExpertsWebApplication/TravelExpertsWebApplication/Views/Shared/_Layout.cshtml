@@ -1,0 +1,120 @@
+﻿<!--
+    Program:        PROJ-207-B -- Travel Experts Web Application
+    Authors:        Ryan Bonnell, Harmanpreet Kaur, James Francis, Robbie Nielsen
+    Page Author:    Robbie Nielsen
+    Dates:          [Start] 2019-08-02 - [End] 2019-08-
+    Abstract:       This web application will allow the customers of Travel Experts
+                    to register user profiles and book travel packages.
+
+                    This is the master layout page.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Travel Experts</title>
+    <!-- Link to FontAwesome glyphicons -->
+    <script src="https://kit.fontawesome.com/fde8931fdd.js"></script>
+    <!-- jQuery UI CSS Reference -->
+    <link href="@Url.Content(" ~/Content/themes/base/minified/jquery-ui.min.css")" rel="stylesheet" />
+    <!-- Required jQuery and jQuery UI Javascript references -->
+    <script src="@Url.Content(" ~/Scripts/jquery-1.7.1.min.js")"></script>
+    <script src="@Url.Content(" ~/Scripts/jquery-ui-1.10.4.min.js")"></script>
+
+    <style>
+        .ui-datepicker-calendar {
+            display: none;
+        }
+    </style>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+@{
+    string className = "";
+    if (TempData["PkgMessage2"] != null)
+    {
+        className = "body-fireworks-pkg";
+    }
+    else
+    {
+        className = "";
+    }
+}
+
+<body class="@className">
+    <nav class="container navbar navbar-expand-md navbar-fixed-top bg-navigate">
+        @Html.ActionLink("Travel Experts", "Index", "Home",
+        new { area = "" }, new { @class = "navbar-brand text-light" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon fas fa-bars menu-nav"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="nav navbar-nav">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home",
+                    new { area = "" }, new { @class = "text-light" })
+                </li>
+
+                <!-- Combined About and Contact -->
+                <li>
+                    @Html.ActionLink("Contact Us", "About", "Home",
+                    new { area = "" }, new { @class = "text-light" })
+                </li>
+
+                <li>
+                    <!-- if loop: if user is not logged in, show registration text.
+                         If user is logged in, welcome them -->
+                    @if (Session["CustomerId"] == null)
+                    {
+                        @Html.ActionLink("Register an Account", "Register", "Customer",
+                        new { area = "" }, new { @class = "text-light" })
+                    }
+                    else
+                    {
+                        <div class="text-light">
+                            @Html.ActionLink("Hello, " + Session["Username"].ToString() + "! Return to Dashboard",
+                            "Index", "Dashboard",
+                            new { area = "" }, new { @class = "text-light" })
+                        </div>
+                    }
+                </li>
+
+                <li>
+                    <!-- if loop: if user is logged in, make button logout instead -->
+                    @if (Session["CustomerId"] == null)
+                    {
+                        @Html.ActionLink("Existing Account Login", "Login", "Customer",
+                        new { area = "" }, new { @class = "text-light" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Logout", "Login", "Customer",
+                        new { area = "" }, new { @class = "text-light" })
+                    }
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="text-center">&copy; @DateTime.Now.Year - Travel Experts</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

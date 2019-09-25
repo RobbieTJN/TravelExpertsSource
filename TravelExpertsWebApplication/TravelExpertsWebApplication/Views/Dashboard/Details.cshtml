@@ -1,0 +1,115 @@
+﻿@model TravelExpertsWebApplication.Models.BookingDetail
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>BookingDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItineraryNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItineraryNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasePrice)
+        </dd>
+        <!-- Commenting these fields out, probably stuff the customer
+             wouldn't be interesting in seeing
+        <dt>
+            @Html.DisplayNameFor(model => model.AgencyCommission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgencyCommission)
+        </dd>-->
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingId)
+        </dd>
+        <!--
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductSupplierId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductSupplierId)
+        </dd>-->
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Return to Previous Page", "ViewPackages")
+</p>

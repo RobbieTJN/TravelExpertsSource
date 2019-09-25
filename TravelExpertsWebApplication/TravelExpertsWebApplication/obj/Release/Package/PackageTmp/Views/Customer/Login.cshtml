@@ -1,0 +1,75 @@
+﻿@model TravelExpertsWebApplication.Models.RegisteredUser
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "Customer Login";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-sm-12 col-md-6">
+        @Html.ActionLink("Don't have an account?", "Register", "Customer")
+    </div>
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "Error: Please check all fields", new { @class = "text-danger" })
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Message
+            </div>
+        }
+
+        @if (TempData["InvalidUser"] != null)// If TempData isn't null, the user wasn't found
+        {
+            <div class="alert alert-danger">
+                @TempData["InvalidUser"].ToString()
+            </div>
+        }
+
+        @if (TempData["AcctMessage"] != null)// User just created a new account
+        {
+            <div class="alert alert-success">
+                Account registration was a success!
+            </div>
+        }
+
+        <div class="form-group">
+            *@Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("UsernameExist", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            *@Html.LabelFor(model => model.UserPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        @Html.ActionLink("Return to Home Page", "Index", "Home")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

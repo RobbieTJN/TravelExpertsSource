@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TravelExpertsWebApplication.Models.Booking>
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "View Purchased Travel Packages";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (Session["Username"] != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelerCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasePrice)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TravelerCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TripTypeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PackageId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BasePrice)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.BookingId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>Total price of all packages: @ViewBag.TotalPrice</p>
+    <p>
+        @Html.ActionLink("Return to Dashboard", "Index")
+    </p>
+}

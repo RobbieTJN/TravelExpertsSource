@@ -1,0 +1,100 @@
+﻿@model TravelExpertsWebApplication.Models.CreditCard
+
+@section scripts
+{
+    <!-- jQuery script for the expiry date field, so user can only select month and year -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.date-picker').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'MM yy',
+                onClose: function (dateText, inst) {
+                    var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                    var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                    $(this).datepicker('setDate', new Date(year, month, 1));
+                }
+            });
+        });
+    </script>
+}
+
+@{
+    /* Author: Robbie Nielsen */
+    ViewBag.Title = "Enter your credit card information";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <p>All fields are required</p>
+
+        <!--
+        <div class="form-group">
+            @Html.LabelFor(model => model.CCName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CCName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CCName, "", new { @class = "text-danger" })
+            </div>
+        </div> -->
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.CCName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CCName,
+                    Model.Companies,
+                    "- Select a Credit Card Company -",
+                    new { @class = "form-control btn btn-light btn-md dropdown-toggle dropdown-toggle-split" })
+                @Html.ValidationMessageFor(model => model.CCName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CCNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CCNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CCNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @if (TempData["InvalidCard"] != null)
+        {
+            <p class="text-danger">@TempData["InvalidCard"].ToString()</p>
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CCExpiry, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CCExpiry,
+                    new { @class = "form-control date-picker" })
+                <!--Html.EditorFor(model => model.CCExpiry, new { htmlAttributes = new { class = "form-control" } }) -->
+                @Html.ValidationMessageFor(model => model.CCExpiry, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @if (TempData["InvalidExpiry"] != null)
+        {
+            <p class="text-danger">@TempData["InvalidExpiry"].ToString()</p>
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
