@@ -3,19 +3,19 @@ Source code for my Travel Experts web app, with sensitive information removed.
 
 If you want to use this yourself, you need to edit the following files:
 
-# TravelExpertsWebApplication\web.config:
+#### TravelExpertsWebApplication\web.config:
 
 Line 21: Custom Errors needs to be turned on, once you're ready to publish. If this is left at "off", users will see a stack trace instead of a nicer error page
 
 Line 63: Connection string needs to be configured to whichever database you're using
 
-# TravelExpertsWebApplication\Models\TravelExpertsDB.cs:
+#### TravelExpertsWebApplication\Models\TravelExpertsDB.cs:
 
 Line 14: Connection string needs to be configured to whichever database you're using
 
 I'm using an Azure-hosted database, so if you do the same, you can just replace:
 
-_ data source={DATABASE};initial catalog={DATABASE_NAME};user id={USERNAME};password={PASSWORD};
+*data source={DATABASE};initial catalog={DATABASE_NAME};user id={USERNAME};password={PASSWORD};*
 
 with the relevant information. Do not include the {curly braces}.
 
