@@ -23,3 +23,15 @@ Additionally, as I'm using Entity Framework to connect to the database, you shou
 
 Alternatively, you could not use EF and create database-level classes instead, but that would involve writing a lot of code, both for the database connection and for validation.
 
+### Things to do/Known bugs:
+
+* Verify credit card expiry date if user had previously entered their information. Currently, a user can register a card with a valid expiry date, but if that date passes, the program won't check for that
+* Allow entering and changing of credit card information on dashboard
+* Better CSS (I was mostly focused on backend programming)
+
+### Future features I'd like to implement:
+
+* Improve credit card entry (CVV, better date selection; requires changes to database)
+* Email confirmation
+* Password reset
+* Third-party authentication (Facebook, Twitter, etc.)
