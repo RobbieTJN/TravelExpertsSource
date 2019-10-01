@@ -25,6 +25,7 @@ Alternatively, you could not use EF and create database-level classes instead, b
 
 ### Things to do/Known bugs:
 
+* Password hashing - salt was not working, so is disabled for now
 * Verify credit card expiry date if user had previously entered their information. Currently, a user can register a card with a valid expiry date, but if that date passes, the program won't check for that
 * Allow entering and changing of credit card information on dashboard
 * Better CSS (I was mostly focused on backend programming)
