@@ -1,7 +1,7 @@
 # TravelExpertsSource
 Source code for my Travel Experts web app, with sensitive information removed.
 
-Link to the published website: https://travelexpertswebapplication.azurewebsites.net
+Removed the link to the published website for now, due to issues with Azure.
 
 If you want to use this yourself, you need to edit the following files:
 
